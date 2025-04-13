@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedido Especial</title>
+    <style>
+        body {
+            background-image: url(img/observacao-de-estrelas-em-stardew-valley-dd1bbzwykl2327cc.webp);
+            align-items: center;
+            background-size: cover;
+            background-color: #ffe4ec;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 90vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .espaco{
+            width: 70%;
+        }
+        .container{
+            width: 100%;
+            padding: 2%;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 2rem;
+        }
+
+        .botoes {
+            position: relative;
+            width: 100%;
+            max-width: 90vw;
+            height: 90vh;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: absolute;
+            transition: 0.3s ease;
+        }
+
+        #sim {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            left: 25%;
+            top: 25%;
+        }
+
+        #nao {
+            background-color: #d3d3d3;
+            color: #333;
+            left: 55%;
+            top: 25%;
+        }
+
+        #mensagem {
+            margin-top: 40px;
+            font-size: 1.5rem;
+            color: #d6336c;
+            display: none;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+        section{
+            padding: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <section>...</section>
+    <div class=" espaco">
+        <div class="container">
+            <h1>Você me ama?</h1>
+        </div>
+        <div class="botoes">
+            <button id="sim" onclick="mudarPagina()"><a href="carta.html">Sim 💖</a></button>
+            <button id="nao">Não 😅</button>
+        </div>
+        <div id="mensagem"><a href="index.html"></a></div>
+    </div>
+
+    <script>
+        const botaoSim = document.getElementById('sim');
+        const botaoNao = document.getElementById('nao');
+        const mensagem = document.getElementById('mensagem');
+
+        botaoSim.addEventListener('click', () => {
+            mensagem.style.display = 'block';
+        });
+
+        botaoNao.addEventListener('click', () => {
+            const maxX = window.innerWidth - botaoNao.offsetWidth;
+            const maxY = window.innerHeight - botaoNao.offsetHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            botaoNao.style.left = `${randomX}px`;
+            botaoNao.style.top = `${randomY}px`;
+        });
+        function mudarPagina() {
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = "pagina2.html";
+            }, 1000); // tempo da transição (1s)
+        }
+    </script>
+
+</body>
+
+</html>
